@@ -44,7 +44,11 @@ ingress:
   enabled: false
   className: ""
   annotations: 
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: review-app
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:894947205914:certificate/a696b1c7-00cf-4188-8361-bca780b7fc49
   hosts:
     - host: test.review-app.identitysandbox.gov
       paths:
